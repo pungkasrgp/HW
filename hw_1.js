@@ -1,4 +1,4 @@
-// Membuat array dengan 100 nilai random antara 1 sampai 50
+// Membuat array dengan 100 nilai random antara 1 - 50
 const array100 = [];
 for (let i = 0; i < 100; i++) {
   array100.push(Math.floor(Math.random() * 50) + 1);
