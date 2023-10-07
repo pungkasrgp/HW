@@ -1,0 +1,277 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Homework_9",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/user/register": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Register User",
+        "operationId": "RegisterUser",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/RegisterUserRequest"
+                  },
+                  {
+                    "example": {
+                      "id": 101,
+                      "email": "Hamdan2321@gmail.com",
+                      "gender": "Male",
+                      "password": "Wewqdsafq",
+                      "role": "Manager"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "id": 101,
+                "email": "Hamdan2321@gmail.com",
+                "gender": "Male",
+                "password": "Wewqdsafq",
+                "role": "Manager"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/login": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Login User",
+        "operationId": "LoginUser",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/LoginUserRequest"
+                  },
+                  {
+                    "example": {
+                      "id": 101,
+                      "email": "Hamdan2321@gmail.com",
+                      "gender": "Male",
+                      "password": "Wewqdsafq",
+                      "role": "Manager"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "id": 101,
+                "email": "Hamdan2321@gmail.com",
+                "gender": "Male",
+                "password": "Wewqdsafq",
+                "role": "Manager"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/movie": {
+      "get": {
+        "tags": [
+          "Movie"
+        ],
+        "summary": "Get Movie",
+        "operationId": "GetMovie",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "Movie"
+        ],
+        "summary": "Create Movie",
+        "operationId": "CreateMovie",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/movie/50": {
+      "get": {
+        "tags": [
+          "Movie"
+        ],
+        "summary": "Get movie by id",
+        "operationId": "Getmoviebyid",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/movie/102": {
+      "put": {
+        "tags": [
+          "Movie"
+        ],
+        "summary": "Update Movie",
+        "operationId": "UpdateMovie",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "Movie"
+        ],
+        "summary": "Delete Movie",
+        "operationId": "DeleteMovie",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RegisterUserRequest": {
+        "title": "RegisterUserRequest",
+        "required": [
+          "id",
+          "email",
+          "gender",
+          "password",
+          "role"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "email": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "id": 101,
+          "email": "Hamdan2321@gmail.com",
+          "gender": "Male",
+          "password": "Wewqdsafq",
+          "role": "Manager"
+        }
+      },
+      "LoginUserRequest": {
+        "title": "LoginUserRequest",
+        "required": [
+          "id",
+          "email",
+          "gender",
+          "password",
+          "role"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "email": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "id": 101,
+          "email": "Hamdan2321@gmail.com",
+          "gender": "Male",
+          "password": "Wewqdsafq",
+          "role": "Manager"
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "User"
+    },
+    {
+      "name": "Movie"
+    }
+  ]
+}
