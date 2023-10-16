@@ -1,22 +1,28 @@
-const express = require('express')
-const multer = require('./utils/multer')
-const path = require('path')
+const express = require('express');
+const bodyParser = require("body-parser");
+const path = require('path');
+const app = express();
+const router = express.Router();
+const { Client } = require('pg');
+var multer  = require('multer');
 
-const app = express()
+const port = process.env.PORT || 3000
 
-app.put("/contact/upload", multer().single('photo'), (req, res) => {
-    const file = req.file.path
 
-    console.log(file)
-    if(!file){
-        return res.status(400).json({
-            status: false,
-            message: 'No file selected'
-        })
-    }
-    res.send(file)
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use('/images',express.static('images'));
+
+app.get('/', (req, res) => { 
+    res.send("Heyy!!"); 
+});
+
+require('./routes/image_routes')(app);
+
+
+app.listen(port, () => {
+    console.log('Server is running on port ' + port);
 })
 
-app.use("/upload", express.static(path.join(__dirname, "public/uploads")))
-
-app.listen(3000, () => console.log('server is running'))
